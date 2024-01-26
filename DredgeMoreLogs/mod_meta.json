@@ -1,0 +1,8 @@
+{
+	"Name": "Detailed Console Logs",
+	"ModGUID": "xen.DredgeMoreLogs",
+	"Version": "0.0.1",
+	"ModAssembly": "DredgeMoreLogs.dll",
+	"MinWinchVersion": "0.2.3",
+	"Entrypoint": "DredgeMoreLogs.Loader/Initialize"
+}

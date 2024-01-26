@@ -1,4 +1,4 @@
-# WinchModTemplate
+# DredgeMoreLogs
 A template Dredge mod for use with the Winch mod loader
 
 ### Prerequisites
@@ -8,14 +8,14 @@ A template Dredge mod for use with the Winch mod loader
 - A GitHub account (required for using the template and releasing your mod to the public)
 
 ### Creating your mod
-1. [Generate your repository from this template](https://github.com/new?template_name=WinchModTemplate&template_owner=DREDGE-Mods)
+1. [Generate your repository from this template](https://github.com/new?template_name=DredgeMoreLogs&template_owner=DREDGE-Mods)
 2. Clone your new repository to your machine
-3. Open all files in a text editor and do a find replace on `WinchModTemplate` to change it to the name of your mod without spaces. For example, `CosmicHorrorFishingBuddies`.
-4. Rename all files with `WinchModTemplate` in the name to instead be the name of your mod without spaces.
-5. Edit `WinchModTemplate/mod_meta.json`
-6. Edit `WinchModTemplate/WinchModTemplate.csproj.user`
-7. Open `WinchModTemplate.sln` in Visual studio
-8. Start writing your code in `WinchModTemplate.cs`
+3. Open all files in a text editor and do a find replace on `DredgeMoreLogs` to change it to the name of your mod without spaces. For example, `CosmicHorrorFishingBuddies`.
+4. Rename all files with `DredgeMoreLogs` in the name to instead be the name of your mod without spaces.
+5. Edit `DredgeMoreLogs/mod_meta.json`
+6. Edit `DredgeMoreLogs/DredgeMoreLogs.csproj.user`
+7. Open `DredgeMoreLogs.sln` in Visual studio
+8. Start writing your code in `DredgeMoreLogs.cs`
 9. Build and release the mod
 
 ### Editing the mod_meta file
@@ -24,24 +24,24 @@ The `mod_meta.json` file looks something like this:
 ```
 {
 	"Name": "Winch Mod Template",
-	"ModGUID": "YourName.WinchModTemplate",
+	"ModGUID": "xen.DredgeMoreLogs",
 	"Version": "0.0.1",
-	"ModAssembly": "WinchModTemplate.dll",
+	"ModAssembly": "DredgeMoreLogs.dll",
 	"MinWinchVersion": "0.2.3",
-	"Entrypoint": "WinchModTemplate.Loader/Initialize"
+	"Entrypoint": "DredgeMoreLogs.Loader/Initialize"
 }
 ```
 You will want to change most of these fields
 
 - `Name`: This is the human readable name of your mod. They will see this name in the mod manager and on the website.
-- `ModGUID`: This is the unique identifier for your mod. To prevent overlaps, you should make this `[YourName].[ModName]`. For example, `xen.CosmicHorrorFishingBuddies`.
-- `ModAssembly`: The main `.dll` file for your mod. This should be changed along with all other references to `WinchModTemplate` in a find/replace on all files.
+- `ModGUID`: This is the unique identifier for your mod. To prevent overlaps, you should make this `[xen].[ModName]`. For example, `xen.CosmicHorrorFishingBuddies`.
+- `ModAssembly`: The main `.dll` file for your mod. This should be changed along with all other references to `DredgeMoreLogs` in a find/replace on all files.
 - `MinWinchVersion`: Set this to be the current Winch version you're using.
 - `EntryPoint`: This is the class and method that is initially called to start your mod. Normally you can just leave this alone.
 
 ### Editing the csproj.user file
 - In the `DredgePath` line, change this to be the actual path of your Dredge install.
-- In the `OutputPath` line, change `YourName.WinchModTemplate` to match the `ModGUID` you wrote in `mod_meta.json`.
+- In the `OutputPath` line, change `xen.DredgeMoreLogs` to match the `ModGUID` you wrote in `mod_meta.json`.
 
 ### Releasing your mod
 Can either be done manually or with the GitHub action.
