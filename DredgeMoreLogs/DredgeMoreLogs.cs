@@ -13,16 +13,32 @@ public static class DredgeMoreLogs
 	public static void Debug_Log(object message) => WinchCore.Log.Info($"[UnityEngine.Debug.Log] {message}");
 
 	[HarmonyPostfix]
+	[HarmonyPatch(typeof(Debug), nameof(Debug.Log), new Type[] { typeof(object), typeof(UnityEngine.Object) })]
+	public static void Debug_Log(object message, UnityEngine.Object context) => WinchCore.Log.Info($"[UnityEngine.Debug.Log] {message}");
+
+	[HarmonyPostfix]
 	[HarmonyPatch(typeof(Debug), nameof(Debug.LogWarning), new Type[] { typeof(object) })]
 	public static void Debug_LogWarning(object message) => WinchCore.Log.Warn($"[UnityEngine.Debug.Log] {message}");
+
+	[HarmonyPostfix]
+	[HarmonyPatch(typeof(Debug), nameof(Debug.LogWarning), new Type[] { typeof(object), typeof(UnityEngine.Object) })]
+	public static void Debug_LogWarning(object message, UnityEngine.Object context) => WinchCore.Log.Warn($"[UnityEngine.Debug.Log] {message}");
 
 	[HarmonyPostfix]
 	[HarmonyPatch(typeof(Debug), nameof(Debug.LogError), new Type[] { typeof(object) })]
 	public static void Debug_LogError(object message) => WinchCore.Log.Error($"[UnityEngine.Debug.Log] {message}");
 
 	[HarmonyPostfix]
+	[HarmonyPatch(typeof(Debug), nameof(Debug.LogError), new Type[] { typeof(object), typeof (UnityEngine.Object) })]
+	public static void Debug_LogError(object message, UnityEngine.Object context) => WinchCore.Log.Error($"[UnityEngine.Debug.Log] {message}");
+
+	[HarmonyPostfix]
 	[HarmonyPatch(typeof(Debug), nameof(Debug.LogException), new Type[] { typeof(Exception) })]
 	public static void Debug_LogException(Exception exception) => WinchCore.Log.Error($"[UnityEngine.Debug.Log] {exception}");
+
+	[HarmonyPostfix]
+	[HarmonyPatch(typeof(Debug), nameof(Debug.LogException), new Type[] { typeof(Exception), typeof(UnityEngine.Object) })]
+	public static void Debug_LogException(Exception exception, UnityEngine.Object context) => WinchCore.Log.Error($"[UnityEngine.Debug.Log] {exception}");
 
 	[HarmonyPrefix]
 	[HarmonyPatch(typeof(ItemManager), nameof(ItemManager.CreateFishItem))]
