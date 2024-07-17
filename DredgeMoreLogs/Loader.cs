@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using HarmonyLib;
+using UnityEngine;
+using Winch.Core;
 
 namespace DredgeMoreLogs
 {
@@ -9,9 +11,8 @@ namespace DredgeMoreLogs
 		/// </summary>
 		public static void Initialize()
 		{
-			var gameObject = new GameObject(nameof(DredgeMoreLogs));
-			gameObject.AddComponent<DredgeMoreLogs>();
-			GameObject.DontDestroyOnLoad(gameObject);
+			WinchCore.Log.Debug($"{nameof(DredgeMoreLogs)} has loaded!");
+			new Harmony(nameof(DredgeMoreLogs)).PatchAll();
 		}
 	}
 }

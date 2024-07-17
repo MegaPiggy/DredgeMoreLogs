@@ -6,14 +6,8 @@ using Winch.Core;
 namespace DredgeMoreLogs;
 
 [HarmonyPatch]
-public class DredgeMoreLogs : MonoBehaviour
+public static class DredgeMoreLogs
 {
-	public void Awake()
-	{
-		WinchCore.Log.Debug($"{nameof(DredgeMoreLogs)} has loaded!");
-		new Harmony(nameof(DredgeMoreLogs)).PatchAll();
-	}
-
 	[HarmonyPostfix]
 	[HarmonyPatch(typeof(Debug), nameof(Debug.Log), new Type[] { typeof(object) })]
 	public static void Debug_Log(object message) => WinchCore.Log.Info($"[UnityEngine.Debug.Log] {message}");
